@@ -14,10 +14,11 @@ for table in tables:
         required_table.append(table)
 
 history_table = required_table[2]
-header_tags = history_table.find_all('th')
-headers = [header.text.strip() for header in header_tags]
-headers = headers[0:12]
-print(headers)
+# header_tags = history_table.find_all('th')
+# headers = [header.text.strip() for header in header_tags]
+# headers = headers[0:12]
+headers = ['Year', 'Host(s)', 'Champion', 'Score and Location', 'Runners-up', 'Third place', 'Score and Location2', 'Fourth place', '# of teams']
+
 
 data_rows = history_table.find_all('tr')
 rows = []
