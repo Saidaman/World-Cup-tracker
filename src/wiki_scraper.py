@@ -27,6 +27,18 @@ for row in data_rows:
     beautified_value = [ele.text.strip() for ele in value]
 
     if len(beautified_value) != 0:
+        link = "https://en.wikipedia.org/wiki/" + beautified_value[0] + "_FIFA_World_Cup"
+        page = req.get(link)
+        soup2 = bs(page.content, 'html.parser')
+        imgs = soup2.findAll('img')
+        #This part finds the poster image of each world cup
+        #TODO: need to extract the src for each poster
+        for img in imgs:
+            if img['class'] == ['mw-file-element']:
+                print("FOUND")
+        # image = imgs[3]
+        # print(image)
+        print(beautified_value[0])
         rows.append(beautified_value)
 
 with open('world_cup_history.csv', 'w') as file:
